@@ -57,7 +57,7 @@ const App = () => {
     new ScrollMagic.Scene({
       triggerElement: "#home-header",
       duration: "110%",
-      triggerHook: .4,
+      triggerHook: .1,
     })
       // .addIndicators()
       .setTween(tl)
