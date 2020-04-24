@@ -1,8 +1,9 @@
 import React, { useState, useEffect, useRef } from 'react';
 import './navbar.scss';
+import { gsap } from "gsap";
 
 const Navbar = (props) => {
-
+    let tl = gsap.timeline();
     const toContact = (destination) => {
         const scroll = destination.target.classList.value;
         window.scrollTo({
@@ -15,6 +16,10 @@ const Navbar = (props) => {
             behavior: "smooth"
         })
     }
+
+    useEffect(() => {
+        tl.to("#navbar", {duration: 1.2, opacity: 1, ease: "power0.easeNone", delay: 1.2})
+    }, [])
 
     return (
         <div id="nav">
