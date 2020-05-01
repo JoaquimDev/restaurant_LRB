@@ -4,15 +4,16 @@ import Home from './pages/home';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import gsap from 'gsap';
 import ScrollMagic from "scrollmagic";
+import Loading from "./component/loading/loading"
 import "../node_modules/scrollmagic/scrollmagic/uncompressed/plugins/animation.gsap"
 import "../node_modules/scrollmagic/scrollmagic/uncompressed/plugins/debug.addIndicators"
+gsap.registerPlugin("../node_modules/scrollmagic/scrollmagic/uncompressed/plugins/animation.gsap")
+gsap.registerPlugin("../node_modules/scrollmagic/scrollmagic/uncompressed/plugins/debug.addIndicators")
+gsap.registerPlugin(ScrollMagic);
 
 const App = () => {
-  const [arrowUp, setArrowUp] = useState(false);
-  const [bgNavbar, setBgNavbar] = useState(false);
-  const [colorArrow, setColorArrow] = useState(true);
   var controller = new ScrollMagic.Controller();
-
+  const [loading, setLoading] = useState(true)
   // Timeline
   let tl = gsap.timeline()
   let specialiteTl = gsap.timeline()
@@ -24,18 +25,6 @@ const App = () => {
   let parallaxSpecialiteTl = gsap.timeline()
 
   useEffect(() => {
-    // window.onscroll = () => {
-    //   window.pageYOffset >= 837 ? setArrowUp(true) : setArrowUp(false);
-    //   window.pageYOffset >= 122 ? setBgNavbar(true) : setBgNavbar(false);
-    //   window.pageYOffset >= 0 && window.pageYOffset <= 1317 ? setColorArrow(true) :
-    //     window.pageYOffset >= 1318 && window.pageYOffset <= 3905 ? setColorArrow(false) :
-    //       window.pageYOffset >= 3905 && window.pageYOffset <= 4509 ? setColorArrow(true) :
-    //         window.pageYOffset >= 4510 && window.pageYOffset <= 4957 ? setColorArrow(false) :
-    //           window.pageYOffset >= 4958 && window.pageYOffset <= 5552 ? setColorArrow(true) :
-    //             window.pageYOffset >= 5552 && setColorArrow(false);
-    // }
-
-    // parallax header
     new ScrollMagic.Scene({
       triggerElement: "#home-header",
       duration: "100%",
@@ -50,6 +39,12 @@ const App = () => {
       offset: 1,
     })
       .setClassToggle("#navbar", "bg-nav")
+      .addTo(controller)
+
+    new ScrollMagic.Scene({
+      offset: 1,
+    })
+      .setClassToggle(".contain-nav-small", "bg-nav")
       .addTo(controller)
 
     // restaurant block
@@ -67,7 +62,7 @@ const App = () => {
     specialiteTl.from("#plat", { duration: 1.2, y: "100px", opacity: 0, ease: "power0.easeNone" })
     new ScrollMagic.Scene({
       triggerElement: "#specialite",
-      duration: "50%",
+      duration: "70%",
       triggerHook: .4
     })
       // .addIndicators()
@@ -143,9 +138,9 @@ const App = () => {
   })
 
   return (
-    < div >
-      <Navbar bgNavbar={bgNavbar}>
-        <Home arrowUp={arrowUp} colorArrow={colorArrow} />
+    <div>
+      <Navbar>
+        <Home />
       </Navbar>
     </div >
   )

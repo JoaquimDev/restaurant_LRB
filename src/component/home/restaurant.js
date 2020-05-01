@@ -11,24 +11,29 @@ const Restaurant = (props) => {
     }
 
     return (
-        <div id="restaurant" className="container form-inline">
-            <div className="col-4 p-0 text-center" style={{ height: "100%" }}>
-                <div className="reservation" style={{ height: "50%" }}>
+        <div id="restaurant" className="form-inline">
+            <div className=" p-0 text-center section_01">
+                <div className="reservation">
                     <p>Réservation</p>
-                    <p className="description mt-3">On vous attend ! Reservez votre table 24h avant</p>
-                    <button onClick={() => goTo()}>Avoir ma table</button>
+                    <p className="description mt-3">Pour réserver votre table ou pour vos commandes en ligne :</p>
+                    <button onClick={() => goTo()}>Contactez-nous</button>
                 </div>
-                <div style={{ height: "50%" }}>
-                    <img src="https://images.pexels.com/photos/2306282/pexels-photo-2306282.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" width="100%" height="100%" />
+                <div className="img_section_01" style={{ height: "50%" }}>
+                    <img src="https://images.pexels.com/photos/2306282/pexels-photo-2306282.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" width="100%" height="100%" alt="restaurant la reinse blanche" />
                 </div>
             </div>
-            <div className="col-8 p-0 text-center" style={{ height: "100%" }}>
-                <div style={{ height: "50%" }}>
-                    <img src="https://images.pexels.com/photos/50675/banquet-wedding-society-deco-50675.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" width="100%" height="100%" />
+            <div className="p-0 text-center section_02" style={{ height: "100%" }}>
+                <div className="img_section_02" style={{ height: "50%" }}>
+                    <img src="https://images.pexels.com/photos/50675/banquet-wedding-society-deco-50675.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" width="100%" height="100%" alt="restaurant la reinse blanche" />
                 </div>
                 <div className="apropos" style={{ height: "50%" }}>
                     <p>À propos</p>
-                    <p className="description">Restaurant spécialisé dans la gastronomie traditionnelle portugaise.</p>
+                    <p className="description">
+                        Situé à Carrières-sous-Poissy, le Restaurant La Reine Blanche vous invite à un voyage au cœur du Portugal.
+                        Les nouveaux gérants vous offriront une atmosphère conviviale, décontractée et chaleureuse.
+                        Venez, vous retrouver pour un déjeuner ou un diner autour d’une carte de spécialités authentiques,
+                        le tout arrosé de bons vins !
+                    </p>
                 </div>
             </div>
         </div>

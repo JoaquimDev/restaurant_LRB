@@ -1,8 +1,6 @@
 import React, { useEffect, useRef } from 'react';
 import './home.scss';
-import BGimages from '../../assets/images/header-picture.jpg';
 import { gsap } from "gsap";
-import * as ScrollMagic from 'scrollmagic';
 
 const Header = (props) => {
     let img = useRef(null);
@@ -10,8 +8,8 @@ const Header = (props) => {
     let subTitleHeader = useRef(null);
     // let controller = new ScrollMagic.Controller();
 
-    let tl = gsap.timeline()
     useEffect(() => {
+        let tl = gsap.timeline()
         tl.to(img, {
             scale: 1.3,
             opacity: 1,
@@ -26,8 +24,6 @@ const Header = (props) => {
                 ease: "power3.inOut",
                 stagger: .2
             }, "-=1.2")
-
-
     }, [])
     return (
         <div>

@@ -1,19 +1,21 @@
-import React, { useState } from 'react';
-import { menuLeft, menuRight } from '../../../config/menuConfig';
+import React from 'react';
+import { menuLeft } from '../../../config/menuConfig';
 
 const PlatsList = () => {
     return (
         <div className="menu-list">
             <div className="container mt-5 form-inline">
-                <div className="text-center form-inline">
+                <div className="form-inline text-right">
                     {menuLeft.map((element, i) =>
-                        <div className="form-inline mt-5 col-6 text-left" key={i}>
-                            <div className="plats-block">
-                                <p className="plats-name">{element.name}</p>
-                                <p className="description">{element.description}</p>
-                            </div>
-                            <div>
-                                <p className="price">{element.price} €</p>
+                        <div className="contain-plats form-inline mt-5" key={i}>
+                            <div className="mx-auto form-inline">
+                                <div className="plats-block">
+                                    <p className="plats-name">{element.name}</p>
+                                    <p className="description">{element.description}</p>
+                                </div>
+                                <div>
+                                    <p className="price">{element.price} €</p>
+                                </div>
                             </div>
                         </div>
                     )}
